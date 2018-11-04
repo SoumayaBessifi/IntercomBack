@@ -52,6 +52,7 @@ public class Equipement {
 	public void setAssocie(Boolean associe) {
 		this.associe = associe;
 	}
+	//Attribut
 	public Equipement(int id, String model, String numSerie, String type, int id_util, Boolean associe) {
 		super();
 		this.id = id;
