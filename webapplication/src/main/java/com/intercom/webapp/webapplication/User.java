@@ -1,23 +1,15 @@
 package com.intercom.webapp.webapplication;
 
 
-
+import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.intercom.webapp.webapplication.Entities.Reclamation;
 import com.intercom.webapp.webapplication.Equipement;
 
 @Entity
@@ -36,8 +28,19 @@ public class User {
 			@JoinColumn(name = "USER_ID", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
 	private List<Role> roles;
-	
-	
+
+    @OneToMany(mappedBy = "reclamations", fetch = FetchType.LAZY)
+    private Collection<Reclamation> reclamations;
+
+
+    public Collection<Reclamation> getReclamations() {
+        return reclamations;
+    }
+
+    public void setReclamations(Collection<Reclamation> reclamations) {
+        this.reclamations = reclamations;
+    }
+
 	public User(int id, String username, String password, String name) {
 		super();
 		this.id = id;
