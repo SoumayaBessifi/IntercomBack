@@ -25,13 +25,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @RestController   
-@RequestMapping(path="/demo")
+@RequestMapping(path="/gestionequip")
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 public class EquipementController {
 	@Autowired
 	private EquipementRepository equipementRepository;
 	
-	
+	/*@GetMapping("/login") 
+	public String showLoginForm() {
+		
+		return "views/loginForm";  
+	}*/
 	
 	@GetMapping("/equipements")
 	public Iterable<Equipement> getEquipement() {
