@@ -22,17 +22,16 @@ public class User {
 	private String name;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Equipement> list;
+	private List<Equipement> list; //liste Equipement
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "USER_ROLES", joinColumns={
 			@JoinColumn(name = "USER_ID", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
 	private List<Role> roles;
 
-    @OneToMany(mappedBy = "reclamations", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user")
     private Collection<Reclamation> reclamations;
-
-
     public Collection<Reclamation> getReclamations() {
         return reclamations;
     }

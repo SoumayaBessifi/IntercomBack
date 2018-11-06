@@ -23,9 +23,11 @@ public class Equipement {
 	private String model;
 	private String numSerie;
 	private String type;
-	
+
 	private int id_util;
+
 	private Boolean associe;
+
 	@ManyToOne
 	@JoinColumn(name="USER_ID")
 	private User user;
