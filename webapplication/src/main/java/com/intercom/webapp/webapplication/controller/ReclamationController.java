@@ -1,6 +1,6 @@
-package com.intercom.webapp.webapplication.Controller;
+package com.intercom.webapp.webapplication.controller;
 
-import com.intercom.webapp.webapplication.Business.ReclamationBusiness;
+import com.intercom.webapp.webapplication.business.ReclamationBusiness;
 import com.intercom.webapp.webapplication.Entities.Reclamation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

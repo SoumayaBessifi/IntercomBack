@@ -1,13 +1,11 @@
-package com.intercom.webapp.webapplication.Business;
+package com.intercom.webapp.webapplication.business;
 
 import com.intercom.webapp.webapplication.Entities.Reclamation;
-import com.intercom.webapp.webapplication.Repository.ReclamationRepository;
+import com.intercom.webapp.webapplication.repository.ReclamationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReclamationBusinessImpl implements ReclamationBusiness {

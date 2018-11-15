@@ -5,6 +5,7 @@ import com.intercom.webapp.webapplication.User;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashMap;
 
 
 @Entity
@@ -18,6 +19,8 @@ public class Reclamation {
     private String urgence; //haute moyenne basse
 
     private String etat; //en cour en attente cloturé
+
+    private HashMap<String, Equipement> listeEquip = new HashMap<String, Equipement>();
 
     private Integer idEquip;
 
@@ -92,5 +95,13 @@ public class Reclamation {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public HashMap<String, Equipement> getListeEquip() {
+        return listeEquip;
+    }
+
+    public void setListeEquip(HashMap<String, Equipement> listeEquip) {
+        this.listeEquip = listeEquip;
     }
 }

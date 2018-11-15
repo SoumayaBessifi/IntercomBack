@@ -1,9 +1,6 @@
-package com.intercom.webapp.webapplication.Business;
+package com.intercom.webapp.webapplication.business;
 
 import com.intercom.webapp.webapplication.Entities.Reclamation;
-
-import java.util.List;
-import java.util.Optional;
 
 public interface ReclamationBusiness {
 
