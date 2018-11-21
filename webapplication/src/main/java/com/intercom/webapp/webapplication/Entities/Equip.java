@@ -2,11 +2,9 @@ package com.intercom.webapp.webapplication.Entities;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.intercom.webapp.webapplication.User;
-import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -28,10 +26,9 @@ public abstract class Equip {
     private Integer idEquip;
     private String numserie;
     private String marque;
-    private String designation;
     private Boolean deffectueux; //actif ou non
-    private LocalDate datemiseservice;
-    private LocalDate fingarantie;
+    private Date datemiseservice;
+    private Date fingarantie;
 
     @ManyToOne
     @JoinColumn(name = "USER_ID")
@@ -41,10 +38,9 @@ public abstract class Equip {
     }
 
     public Equip(String numserie, String marque,
-                 String designation, Boolean deffectueux, LocalDate datemiseservice, LocalDate fingarantie, Utilisateurs utilisateur) {
+                 Boolean deffectueux, Date datemiseservice, Date fingarantie, Utilisateurs utilisateur) {
         this.numserie = numserie;
         this.marque = marque;
-        this.designation = designation;
         this.deffectueux = deffectueux;
         this.datemiseservice = datemiseservice;
         this.fingarantie = fingarantie;
@@ -75,14 +71,6 @@ public abstract class Equip {
         this.marque = marque;
     }
 
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
-
     public Boolean getDeffectueux() {
         return deffectueux;
     }
@@ -91,19 +79,19 @@ public abstract class Equip {
         this.deffectueux = deffectueux;
     }
 
-    public LocalDate getDatemiseservice() {
+    public Date getDatemiseservice() {
         return datemiseservice;
     }
 
-    public void setDatemiseservice(LocalDate datemiseservice) {
+    public void setDatemiseservice(Date datemiseservice) {
         this.datemiseservice = datemiseservice;
     }
 
-    public LocalDate getFingarantie() {
+    public Date getFingarantie() {
         return fingarantie;
     }
 
-    public void setFingarantie(LocalDate fingarantie) {
+    public void setFingarantie(Date fingarantie) {
         this.fingarantie = fingarantie;
     }
 

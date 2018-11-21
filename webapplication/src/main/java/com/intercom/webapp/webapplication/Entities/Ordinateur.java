@@ -2,8 +2,7 @@ package com.intercom.webapp.webapplication.Entities;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.time.LocalDate;
-
+import java.util.Date;
 @Entity
 @DiscriminatorValue("Ordinateur")
 public class Ordinateur extends Equip {
@@ -22,11 +21,11 @@ public class Ordinateur extends Equip {
     public Ordinateur() {
     }
 
-    public Ordinateur(String numserie, String marque, String designation,
-                      Boolean deffectueux, LocalDate datemiseservice, LocalDate fingarantie,
+    public Ordinateur(String numserie, String marque,
+                      Boolean deffectueux, Date datemiseservice, Date fingarantie,
                       Utilisateurs utilisateur, String memoire, String processeur,
                       Boolean ecran, Integer nbrecran, Boolean UC, Boolean clavier, Boolean souris, String type, String sysexp) {
-        super(numserie, marque, designation, deffectueux, datemiseservice, fingarantie, utilisateur);
+        super(numserie, marque, deffectueux, datemiseservice, fingarantie, utilisateur);
         this.memoire = memoire;
         this.processeur = processeur;
         this.ecran = ecran;
