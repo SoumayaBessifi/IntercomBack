@@ -18,7 +18,7 @@ public class ReclamationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    Reclamation addReclamation(@RequestBody Reclamation reclamation) {
+    public Reclamation addReclamation(@RequestBody Reclamation reclamation) {
         return reclamationBusiness.addReclamation(reclamation);
     }
 

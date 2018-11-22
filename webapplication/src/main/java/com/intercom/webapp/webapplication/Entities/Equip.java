@@ -19,7 +19,7 @@ import java.util.Date;
         @JsonSubTypes.Type(value = Routeur.class, name = "Routeur"),
         @JsonSubTypes.Type(value = Serveur.class, name = "Serveur"),
 })
-public abstract class Equip {
+public  class Equip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

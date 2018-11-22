@@ -20,27 +20,27 @@ public class MaterielController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    Equip addEquip(@RequestBody Equip equip) {
+    public Equip addEquip(@RequestBody Equip equip) {
         return equipBusiness.addEquip(equip);
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Ordinateur> findAllOrdinateur() {
+    public List<Ordinateur> findAllOrdinateur() {
         return equipBusiness.findOrdi();
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-    void removeEquip(@PathVariable Integer id) {
+    public void removeEquip(@PathVariable Integer id) {
         equipBusiness.removeEquip(id);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-    Equip updateEquip(@PathVariable Integer id, @RequestBody Equip equip) {
+    public Equip updateEquip(@PathVariable Integer id, @RequestBody Equip equip) {
         return equipBusiness.updateEquip(equip);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-    Equip findById(@PathVariable Integer id) {
+    public Equip findById(@PathVariable Integer id) {
         return equipBusiness.findById(id);
     }
 
