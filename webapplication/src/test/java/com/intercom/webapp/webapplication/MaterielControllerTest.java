@@ -6,22 +6,22 @@ import com.intercom.webapp.webapplication.business.EquipBusiness;
 import com.intercom.webapp.webapplication.controller.MaterielController;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class MaterielControllerTest {
 
     private static final String EQUIPEMENT_NUMSERIE = "X541U";
-
+    @Mock
     EquipBusiness equipBusiness=mock(EquipBusiness.class);
-
+    @InjectMocks
     MaterielController materielController=new MaterielController(equipBusiness);
 
     Date datemisservice=new Date(17,02,01);
@@ -60,15 +60,23 @@ public class MaterielControllerTest {
 
     @Test
     public void saveNothingWhenAddEquipementThenEquipement() {
-        materielController.addEquip(equipement1);
+        // Arrange
+        when(equipBusiness.addEquip(equipement1)).thenReturn(equipement1);
+        //act
+        Equip actual_equipement=materielController.addEquip(equipement1);
+        //Assert
         verify(equipBusiness).addEquip(equipement1);
+        assertEquals(equipement1,actual_equipement);
     }
 
     @Test
     public void updateNoEquipementWhenUpdateEquipementThenEquipement()
     {
-        when(equipBusiness.addEquip(equipement2)).thenReturn(equipement2);
+        // Arrange
+        when(equipBusiness.updateEquip(equipement2)).thenReturn(equipement2);
+        // Act
         materielController.updateEquip(1,equipement2);
+        // Assert
         verify(equipBusiness).updateEquip(equipement2);
     }
 
@@ -80,12 +88,15 @@ public class MaterielControllerTest {
     }
 
     @Test
-    public void NoEquipementFoundWhenIDEquipementThenReferencesToEquipement() {
+    public void shouldReturnEquipement_whenGetEquipementByIdIsCalled() {
 
-        when(equipBusiness.addEquip(equipement2)).thenReturn(equipement2);
-        materielController.findById(1);
-        verify(equipBusiness).findById(1);
-        assertEquals(materielController.findById(1),equipBusiness.findById(1));
+        //arrange
+        when(equipBusiness.findById(1)).thenReturn(equipement1);
+        //act
+        Equip actual = materielController.findById(1);
+        // Assert
+        assertEquals(equipement1,actual);
+
     }
 
 

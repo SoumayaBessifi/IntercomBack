@@ -22,7 +22,7 @@ public class RouteurController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Routeur> findRouteur() {
+    public List<Routeur> findRouteur() {
         return equipBusiness.findRouteur();
     }
 }

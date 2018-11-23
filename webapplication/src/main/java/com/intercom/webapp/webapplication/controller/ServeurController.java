@@ -22,7 +22,7 @@ public class ServeurController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Serveur> findServeur() {
+    public List<Serveur> findServeur() {
         return equipBusiness.findServ();
     }
 }

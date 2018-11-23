@@ -22,7 +22,7 @@ public class ImprimanteController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    List<Imprimante> findAllImprimante() {
+    public List<Imprimante> findAllImprimante() {
         return equipBusiness.findImpr();
     }
 
