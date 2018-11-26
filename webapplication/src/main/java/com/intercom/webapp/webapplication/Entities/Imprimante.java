@@ -8,7 +8,6 @@ import java.util.Date;
 @DiscriminatorValue("Imprimante")
 public class Imprimante extends Equip {
     private String cartouche;
-    private Boolean cableAlimentation;
 
     public Imprimante() {
     }
@@ -16,7 +15,6 @@ public class Imprimante extends Equip {
     public Imprimante(String numserie, String marque, Boolean deffectueux, Date datemiseservice, Date fingarantie, Utilisateurs utilisateur, String cartouche) {
         super(numserie, marque, deffectueux, datemiseservice, fingarantie, utilisateur);
         this.cartouche = cartouche;
-        this.cableAlimentation = cableAlimentation;
     }
 
     public String getCartouche() {

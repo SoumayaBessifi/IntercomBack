@@ -24,7 +24,7 @@ public class WebapplicationApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-        Utilisateurs ut = new Utilisateurs("toto", "titi", 1, "toto@titi.com", "bobo", "info");
+		// Utilisateurs ut = new Utilisateurs("toto", "titi", 1, "toto@titi.com", "bobo", "info");
 
         User newAdmin = new User("admin", "123456", "Hole");
 		  userService.createAdmin(newAdmin); 

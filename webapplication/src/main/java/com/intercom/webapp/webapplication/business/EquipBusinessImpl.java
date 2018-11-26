@@ -5,6 +5,7 @@ import com.intercom.webapp.webapplication.Entities.*;
 import com.intercom.webapp.webapplication.repository.EquipReposirtory;
 import com.intercom.webapp.webapplication.UserRepository;
 import com.intercom.webapp.webapplication.repository.UtilisateurRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -18,6 +19,7 @@ public class EquipBusinessImpl implements EquipBusiness {
     private final EquipReposirtory equipReposirtory;
     private final UtilisateurRepository utilisateurRepository;
 
+    @Autowired
     public EquipBusinessImpl(UserRepository userRepository, EquipReposirtory equipReposirtory, UtilisateurRepository utilisateurRepository) {
         this.userRepository = userRepository;
         this.equipReposirtory = equipReposirtory;
