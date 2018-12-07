@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ReclamationBusinessImpl implements ReclamationBusiness {
@@ -22,6 +23,16 @@ public class ReclamationBusinessImpl implements ReclamationBusiness {
     public Reclamation addReclamation(Reclamation rec) {
         rec.setDate_creation(new Date());
         return reclamationRepository.save(rec);
+    }
+
+    @Override
+    public List<Reclamation> findAll() {
+        return reclamationRepository.findAll();
+    }
+
+    @Override
+    public Reclamation findById(Integer id) {
+        return reclamationRepository.getOne(id);
     }
 
 /*

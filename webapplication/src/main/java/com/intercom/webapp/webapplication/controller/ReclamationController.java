@@ -5,6 +5,8 @@ import com.intercom.webapp.webapplication.Entities.Reclamation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/Reclamations")
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*")
@@ -20,6 +22,18 @@ public class ReclamationController {
     @RequestMapping(method = RequestMethod.POST)
     public Reclamation addReclamation(@RequestBody Reclamation reclamation) {
         return reclamationBusiness.addReclamation(reclamation);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    List<Reclamation> findAll() {
+        return reclamationBusiness.findAll();
+
+    }
+
+    //  @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    Reclamation getOne(@PathVariable int id) {
+        return reclamationBusiness.findById(id);
     }
 
 }
